@@ -1,13 +1,10 @@
-
 <div id="client_name">
-  <h1>Application Details for: <%= @client.name %></h1>
+  <h1>Application Details: <%= @client.name.capitalize %></h1>
 </div>
 <br/>
 <br/>
 <div class="center-align">
-  <h2>
-    <a href="/sources/<%= @client.name %>/events"><%= "#{@client.name} Events Index" %></a>
-  </h2>
+  <h3><a class="waves-effect waves-red btn-large" href="/sources/<%= @client.name %>/events"><%= "#{@client.name.capitalize} Events Index" %></a></h3>
   <br/>
   <br/>
   <br/>

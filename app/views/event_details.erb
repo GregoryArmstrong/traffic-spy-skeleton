@@ -1,18 +1,18 @@
-<h1>Event Details for <%= identifier %>'s <%= event_name %>s</h1>
+<h1>Event Details for <%= identifier.capitalize %>'s <%= event_name %>s</h1>
 <% hours = {} %>
-  <% @client.payloads.hour_by_hour_breakdown.each do |time| %>
-    <% hours[time] += 1 if hours.has_key?(time) %>
-    <% hours[time] = 1 unless hours.has_key?(time) %>
-  <% end %>
+<% @client.payloads.hour_by_hour_breakdown.each do |time| %>
+<% hours[time] += 1 if hours.has_key?(time) %>
+<% hours[time] = 1 unless hours.has_key?(time) %>
+<% end %>
 <br/>
 <br/>
 <div class="center-align">
   <div class="container">
-  <div class="card red darken-1 z-depth-1">
-    <%= erb :'partials/_event_details_table', locals: {hours: hours} %>
-    <br/>
-    <br/>
-    <br/>
+    <div class="card red darken-1 z-depth-1">
+      <%= erb :'partials/_event_details_table', locals: {hours: hours} %>
+      <br/>
+      <br/>
+      <br/>
+    </div>
   </div>
-</div>
 </div>

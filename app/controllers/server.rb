@@ -3,6 +3,7 @@ module TrafficSpy
 
   class Server < Sinatra::Base
     get '/' do
+      @client = Client.all
       erb :index
     end
 
