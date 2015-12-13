@@ -1,8 +1,5 @@
 require_relative '../test_helper'
 
-# add test for empty payload in addition to nil Payload
-
-
 class UserReceivesCorrectStatusAndBodyFromPayloadHandlerTest < Minitest::Test
 
   def setup
@@ -15,14 +12,14 @@ class UserReceivesCorrectStatusAndBodyFromPayloadHandlerTest < Minitest::Test
     assert_equal 200, last_response.status
   end
 
-  def test_user_receives_400_http_status_with_missing_payload
+  def test_user_receives_400_http_status_with_nil_payload
     post '/sources/jumpstartlab/data', nil_payload
 
     assert_equal 400, last_response.status
     assert_equal "Payload Missing.", last_response.body
   end
 
-  def test_user_receives_400_http_status_with_missing_payload
+  def test_user_receives_400_http_status_with_empty_payload
     post '/sources/jumpstartlab/data', empty_payload
 
     assert_equal 400, last_response.status

@@ -52,6 +52,14 @@ class PayloadHandlerTest < Minitest::Test
     refute_equal 2, Payload.where(id: 1).pluck("resolution_height").first
   end
 
+  def test_parse_and_save_payload
+    ph = PayloadHandler.new(payload)
+    ph.parse_and_save_payload
+
+    assert ph.hashed_payload.is_a?(String)
+    assert ph.payload.is_a?(Hash)
+  end
+
   def test_payload_invalid_detects_payload_validity
     ph = PayloadHandler.new(payload)
     refute ph.payload_invalid?
