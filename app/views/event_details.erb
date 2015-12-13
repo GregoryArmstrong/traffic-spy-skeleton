@@ -4,10 +4,11 @@
     <% hours[time] += 1 if hours.has_key?(time) %>
     <% hours[time] = 1 unless hours.has_key?(time) %>
   <% end %>
-
+<br/>
+<br/>
 <div class="center-align">
   <div class="container">
-  <div class="z-depth-1">
+  <div class="card red darken-1 z-depth-1">
     <%= erb :'partials/_event_details_table', locals: {hours: hours} %>
     <br/>
     <br/>

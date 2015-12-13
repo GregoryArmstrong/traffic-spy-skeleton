@@ -1,13 +1,19 @@
+
 <div id="client_name">
   <h1>Application Details for: <%= @client.name %></h1>
 </div>
-
+<br/>
+<br/>
 <div class="center-align">
   <h2>
     <a href="/sources/<%= @client.name %>/events"><%= "#{@client.name} Events Index" %></a>
   </h2>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
   <div class="container">
-    <div class="z-depth-1">
+    <div class="card red darken-1 z-depth-1">
       <%= erb :'partials/_url_requests_table' %>
       <br/>
       <br/>
@@ -15,7 +21,7 @@
   </div>
   <br/>
   <div class="container">
-    <div class="z-depth-1">
+    <div class="card red darken-1 z-depth-1">
       <%= erb :'partials/_browser_and_os_table' %>
       <br/>
       <br/>
@@ -23,7 +29,7 @@
   </div>
   <br/>
   <div class="container">
-    <div class="z-depth-1">
+    <div class="card red darken-1 z-depth-1">
       <%= erb :'partials/_url_response_times_table' %>
       <br/>
       <br/>
@@ -31,7 +37,7 @@
   </div>
   <br/>
   <div class="container">
-    <div class="z-depth-1">
+    <div class="card red darken-1 z-depth-1">
       <%= erb :'partials/_urls_table' %>
       <br/>
       <br/>

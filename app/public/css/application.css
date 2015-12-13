@@ -7,3 +7,7 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.special-container {
+  min-height: 100vh;
+}
