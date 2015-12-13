@@ -51,4 +51,16 @@ class PayloadHandlerTest < Minitest::Test
     refute_equal "www.google.com", Payload.where(id: 1).pluck("referred_by").first
     refute_equal 2, Payload.where(id: 1).pluck("resolution_height").first
   end
+
+  def test_payload_invalid_detects_payload_validity
+    ph = PayloadHandler.new(payload)
+    refute ph.payload_invalid?
+
+    ph_2 = PayloadHandler.new(nil_payload)
+    assert ph_2.payload_invalid?
+
+    ph_3 = PayloadHandler.new(empty_payload)
+    assert ph_3.payload_invalid?
+  end
+
 end
