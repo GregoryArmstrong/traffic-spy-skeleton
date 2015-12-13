@@ -2,7 +2,7 @@ require_relative '../test_helper'
 
 class UserCanViewEventDetailsTest < FeatureTest
 
-  def test_user_can_view_event_details
+  def test_user_can_view_event_details_happy_path
     Client.create({"name" => "jumpstartlab", "root_url" => "http://jumpstartlab.com"})
     ph = PayloadHandler.new(payload)
 
@@ -30,7 +30,6 @@ class UserCanViewEventDetailsTest < FeatureTest
     ph = PayloadHandler.new(payload)
 
     visit '/sources/jumpstartlab/events/makingtaylorcryaftermethodicallydisassemblinghiminsupersmashbrothers'
-    save_and_open_page
 
     within '#error-message' do
       assert page.has_content?("That event isn't defined.")

@@ -39,7 +39,7 @@ class ViewHandlerTest < Minitest::Test
     ph = PayloadHandler.new(payload)
 
     assert_equal :error, ViewHandler.assign_url_details_erb_path("pretzels")
-    assert_equal "That URL has not been requested.", ViewHandler.assign_url_details_error_message("pretzels")
+    assert_equal "That URL has not been requested.", ViewHandler.assign_url_details_error_message(client, "pretzels")
   end
 
   def test_view_handler_assigns_event_index_erb_for_sad_path

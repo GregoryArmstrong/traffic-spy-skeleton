@@ -28,8 +28,8 @@ module TrafficSpy
 
     get '/sources/:identifier/urls/:path' do |identifier, path|
       @client = Client.find_by(name: identifier)
-      @path_requested = @client.root_url + "/#{path}"
-      @error_message = ViewHandler.assign_url_details_error_message(@path_requested)
+      @path_requested = ViewHandler.set_path(@client, path)
+      @error_message = ViewHandler.assign_url_details_error_message(@client, @path_requested)
       erb ViewHandler.assign_url_details_erb_path(@path_requested)
     end
 
