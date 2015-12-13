@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-      <!-- <link type="text/css" rel="stylesheet" href="/css/application.css"/> -->
-      <link type="text/css" rel="stylesheet" href="/css/application.css"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Traffic Spy</title>
-    </head>
-    <body>
+<html lang="en">
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Rozha+One|Exo' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css" media="screen,projection">
+  <link type="text/css" rel="stylesheet" href="/css/application.css"/>
+  <title>Traffic Spy</title>
+</head>
+<body>
+  <div class="background orange accent-1">
+    <div class="special-container">
       <%= erb :'partials/_nav_bar' %>
       <%= yield %>
-      <%= erb :'/partials/_footer' %>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
-    </body>
-  </html>
+    </div>
+    <%= erb :'/partials/_footer' %>
+  </div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+</body>
+</html>
