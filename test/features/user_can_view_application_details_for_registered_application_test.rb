@@ -9,6 +9,8 @@ class UserCanViewApplicationDetailsForRegisteredApplicationTest < FeatureTest
 
     visit '/sources/google/'
 
+    refute page.has_content?("Error")
+
     within '#client-name' do
       assert page.has_content?("Google")
     end

@@ -8,6 +8,7 @@ class UserSeesCorrectErrorMessagesForSourcePage < FeatureTest
 
     visit '/sources/pretzels/'
 
+    assert page.has_content?("Error")
     assert page.has_content?("The identifier does not exist.")
 
   end
@@ -16,6 +17,8 @@ class UserSeesCorrectErrorMessagesForSourcePage < FeatureTest
     Client.create(name: "Turing", root_url: "http://turing.io")
 
     visit '/sources/Turing/'
+
+    assert page.has_content?("Error")
     assert page.has_content?("No payload data has been received for this source.")
   end
 

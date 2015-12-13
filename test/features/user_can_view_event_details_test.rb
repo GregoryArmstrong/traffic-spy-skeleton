@@ -8,6 +8,7 @@ class UserCanViewEventDetailsTest < FeatureTest
 
     visit '/sources/jumpstartlab/events/socialLogin'
 
+    refute page.has_content?("Error")
     within '#event-details-title' do
       assert page.has_content?("Event Details")
       assert page.has_content?("socialLogin")

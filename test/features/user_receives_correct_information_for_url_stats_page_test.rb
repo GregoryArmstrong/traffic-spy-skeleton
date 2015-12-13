@@ -25,30 +25,27 @@ class UserReceivesCorrectInformationForURLStatsPageTest < FeatureTest
     visit '/sources/jumpstartlab/urls/blog'
 
     assert "/sources/jumpstartlab/urls/blog", current_path
+    refute page.has_content?("Error")
 
     within '#page-title' do
       assert page.has_content?("URL Details")
-      refute page.has_content?("Error")
+
     end
 
     within '#response-time-table' do
       assert page.has_content?("URL Response Times")
-      refute page.has_content?("Error")
     end
 
     within '#request-type-table' do
       assert page.has_content?("HTTP Request Types")
-      refute page.has_content?("Error")
     end
 
     within '#referrals-table' do
       assert page.has_content?("Referrals")
-      refute page.has_content?("Error")
     end
 
     within '#top-user-agents-table' do
       assert page.has_content?("Top User Agents")
-      refute page.has_content?("Error")
     end
   end
 
