@@ -2,12 +2,16 @@
   <h1>Application Details for: <%= @client.name %></h1>
 </div>
 
-<a href="/sources/<%= @client.name %>/events"><%= "#{@client.name} Events Index" %></a>
-
-  <%= erb :'partials/_url_requests_table' %>
-
-  <%= erb :'partials/_browser_and_os_table' %>
-
-  <%= erb :'partials/_url_response_times_table' %>
-
-  <%= erb :'partials/_urls_table' %>
+<div class="center-align">
+  <h2>
+    <a href="/sources/<%= @client.name %>/events"><%= "#{@client.name} Events Index" %></a>
+  </h2>
+    <%= erb :'partials/_url_requests_table' %>
+    <br/>
+    <%= erb :'partials/_browser_and_os_table' %>
+    <br/>
+    <%= erb :'partials/_url_response_times_table' %>
+    <br/>
+    <%= erb :'partials/_urls_table' %>
+    <br/>
+</div>

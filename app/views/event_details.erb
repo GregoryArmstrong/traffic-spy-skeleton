@@ -5,4 +5,7 @@
     <% hours[time] = 1 unless hours.has_key?(time) %>
   <% end %>
 
+<div class="center-align">
   <%= erb :'partials/_event_details_table', locals: {hours: hours} %>
+  <br/>
+</div>
