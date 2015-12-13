@@ -3,16 +3,27 @@ require_relative '../test_helper'
 class UserCanViewEventDetailsTest < FeatureTest
 
   def test_user_can_view_event_details
+    Client.create({"name" => "jumpstartlab", "root_url" => "http://jumpstartlab.com"})
+    ph = PayloadHandler.new(payload)
 
-    ces = ClientEnvironmentSimulator.new
-    ces.start_simulation
+    visit '/sources/jumpstartlab/events/socialLogin'
 
-    visit '/sources/google/events/Dad'
+    within '#event-details-title' do
+      assert page.has_content?("Event Details")
+      assert page.has_content?("socialLogin")
+    end
+  end
 
-    assert page.has_content?("Event Details")
+  def test_user_cannot_view_event_details_for_unregistered_identifier
+    Client.create({"name" => "jumpstartlab", "root_url" => "http://jumpstartlab.com"})
+    ph = PayloadHandler.new(payload)
 
-    visit '/sources/google/events/mom'
+    visit '/sources/iguanas/events/socialLogin'
+    save_and_open_page
 
+    within '#error-message' do
+      assert page.has_content?("The identifier does not exist.")
+    end
   end
 
 

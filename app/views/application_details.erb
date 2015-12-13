@@ -1,4 +1,4 @@
-<div id="client_name">
+<div id="client-name">
   <h1>Application Details: <%= @client.name.capitalize %></h1>
 </div>
 <br/>
@@ -10,7 +10,7 @@
   <br/>
   <br/>
   <div class="container">
-    <div class="card red darken-1 z-depth-1">
+    <div id="url-request-table" class="card red darken-1 z-depth-1">
       <%= erb :'partials/_url_requests_table' %>
       <br/>
       <br/>
@@ -18,7 +18,7 @@
   </div>
   <br/>
   <div class="container">
-    <div class="card red darken-1 z-depth-1">
+    <div id="user-agent-table" class="card red darken-1 z-depth-1">
       <%= erb :'partials/_browser_and_os_table' %>
       <br/>
       <br/>
@@ -26,7 +26,7 @@
   </div>
   <br/>
   <div class="container">
-    <div class="card red darken-1 z-depth-1">
+    <div id="response-time-table" class="card red darken-1 z-depth-1">
       <%= erb :'partials/_url_response_times_table' %>
       <br/>
       <br/>
@@ -34,7 +34,7 @@
   </div>
   <br/>
   <div class="container">
-    <div class="card red darken-1 z-depth-1">
+    <div id="paths-table" class="card red darken-1 z-depth-1">
       <%= erb :'partials/_urls_table' %>
       <br/>
       <br/>
