@@ -8,9 +8,10 @@ class UserCanViewApplicationDetailsForRegisteredApplicationTest < FeatureTest
     ces.start_simulation
 
     visit '/sources/google/'
+    save_and_open_page
 
     within '#client_name' do
-      assert page.has_content?("google")
+      assert page.has_content?("Google")
     end
   end
 
