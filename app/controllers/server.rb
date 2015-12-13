@@ -28,8 +28,8 @@ module TrafficSpy
 
     get '/sources/:identifier/urls/:path' do |identifier, path|
       @client = Client.find_by(name: identifier)
-      @path_requested = @client.root_url + "/#{path}"
-      @error_message = ViewHandler.assign_url_details_error_message(@path_requested)
+      @path_requested = ViewHandler.set_path(@client, path)
+      @error_message = ViewHandler.assign_url_details_error_message(@client, @path_requested)
       erb ViewHandler.assign_url_details_erb_path(@path_requested)
     end
 
@@ -41,8 +41,8 @@ module TrafficSpy
 
     get '/sources/:identifier/events/:event_name' do |identifier, event_name|
       @client = Client.find_by(name: identifier)
-      @error_message = ViewHandler.assign_event_details_error_message(event_name)
-      erb ViewHandler.assign_event_details_erb_path(event_name), locals: {identifier: identifier, event_name: event_name}
+      @error_message = ViewHandler.assign_event_details_error_message(@client, event_name)
+      erb ViewHandler.assign_event_details_erb_path(@client, event_name), locals: {identifier: identifier, event_name: event_name}
     end
 
     not_found do

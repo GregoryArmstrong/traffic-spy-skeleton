@@ -2,17 +2,38 @@ require_relative '../test_helper'
 
 class UserCanViewEventDetailsTest < FeatureTest
 
-  def test_user_can_view_event_details
+  def test_user_can_view_event_details_happy_path
+    Client.create({"name" => "jumpstartlab", "root_url" => "http://jumpstartlab.com"})
+    ph = PayloadHandler.new(payload)
 
-    ces = ClientEnvironmentSimulator.new
-    ces.start_simulation
+    visit '/sources/jumpstartlab/events/socialLogin'
 
-    visit '/sources/google/events/Dad'
+    within '#event-details-title' do
+      assert page.has_content?("Event Details")
+      assert page.has_content?("socialLogin")
+    end
+  end
 
-    assert page.has_content?("Event Details")
+  def test_user_cannot_view_event_details_for_unregistered_identifier
+    Client.create({"name" => "jumpstartlab", "root_url" => "http://jumpstartlab.com"})
+    ph = PayloadHandler.new(payload)
 
-    visit '/sources/google/events/mom'
+    visit '/sources/iguanas/events/socialLogin'
 
+    within '#error-message' do
+      assert page.has_content?("The identifier does not exist.")
+    end
+  end
+
+  def test_user_cannot_view_event_details_for_event_that_hasnt_been_recorded
+    Client.create({"name" => "jumpstartlab", "root_url" => "http://jumpstartlab.com"})
+    ph = PayloadHandler.new(payload)
+
+    visit '/sources/jumpstartlab/events/makingtaylorcryaftermethodicallydisassemblinghiminsupersmashbrothers'
+
+    within '#error-message' do
+      assert page.has_content?("That event isn't defined.")
+    end
   end
 
 
