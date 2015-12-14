@@ -9,7 +9,6 @@ require 'minitest/pride'
 require 'capybara'
 require 'database_cleaner'
 require 'tilt/erb'
-require_relative '../test/simulation_environment/client_environment_simulator'
 
 DatabaseCleaner.strategy = :truncation, { except: %w[public.schema_migrations] }
 
@@ -90,5 +89,5 @@ class FeatureTest < Minitest::Test
                \"ip\":\"63.29.38.211\"}",
                "identifier"=>"JumpstartLabs"}
   end
-  
+
 end

@@ -1,5 +1,4 @@
 require_relative '../test_helper'
-require_relative '../simulation_environment/client_environment_simulator'
 
 class UserCanViewApplicationDetailsForRegisteredApplicationTest < FeatureTest
 
