@@ -34,6 +34,4 @@ class UserCanViewEventDetailsTest < FeatureTest
     end
   end
 
-
-
 end
