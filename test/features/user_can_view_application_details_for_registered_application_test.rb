@@ -3,36 +3,6 @@ require_relative '../simulation_environment/client_environment_simulator'
 
 class UserCanViewApplicationDetailsForRegisteredApplicationTest < FeatureTest
 
-  def setup
-    post '/sources', {"identifier" => "JumpstartLabs", "rootUrl" => "http://jumpstartlab.com"}
-    post '/sources/JumpstartLabs/data', {"payload"=>
-               "{\"url\":\"http://jumpstartlab.com/blog\",
-               \"requestedAt\":\"2013-02-16 21:38:28 -0700\",
-               \"respondedIn\":37,
-               \"referredBy\":\"http://jumpstartlab.com\",
-               \"requestType\":\"GET\",
-               \"parameters\":[],
-               \"eventName\":\"socialLogin\",
-               \"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17\",
-               \"resolutionWidth\":\"1920\",
-               \"resolutionHeight\":\"1280\",
-               \"ip\":\"63.29.38.211\"}",
-               "identifier"=>"JumpstartLabs"}
-    post '/sources/JumpstartLabs/data', {"payload"=>
-               "{\"url\":\"http://jumpstartlab.com/blog\",
-               \"requestedAt\":\"2013-02-16 12:38:28 -0700\",
-               \"respondedIn\":67,
-               \"referredBy\":\"http://jumpstartlab.com\",
-               \"requestType\":\"GET\",
-               \"parameters\":[],
-               \"eventName\":\"socialLogin\",
-               \"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17\",
-               \"resolutionWidth\":\"1920\",
-               \"resolutionHeight\":\"1280\",
-               \"ip\":\"63.29.38.211\"}",
-               "identifier"=>"JumpstartLabs"}
-  end
-
   def test_user_can_view_application_details_for_registered_application
     visit '/sources/JumpstartLabs/'
 
