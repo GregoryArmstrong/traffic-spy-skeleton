@@ -27,7 +27,7 @@ class UserCanViewEventDetailsTest < FeatureTest
   end
 
   def test_user_cannot_view_event_details_for_event_that_hasnt_been_recorded
-    visit '/sources/jumpstartlab/events/makingtaylorcryaftermethodicallydisassemblinghiminsupersmashbrothers'
+    visit '/sources/JumpstartLabs/events/makingtaylorcryaftermethodicallydisassemblinghiminsupersmashbrothers'
 
     within '#error-message' do
       assert page.has_content?("That event isn't defined.")

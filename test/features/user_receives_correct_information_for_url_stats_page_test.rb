@@ -3,8 +3,6 @@ require_relative '../test_helper'
 class UserReceivesCorrectInformationForURLStatsPageTest < FeatureTest
 
   def test_user_sees_error_that_identifier_doesnt_exist_when_requesting_url_page_for_unregistered_client
-    Client.create(name: "Turing", root_url: "http://turing.io")
-
     visit '/sources/GOPATRIOTS/urls/pretzels'
 
     assert page.has_content?("The identifier does not exist.")
