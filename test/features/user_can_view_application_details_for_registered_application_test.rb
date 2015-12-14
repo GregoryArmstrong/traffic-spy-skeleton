@@ -50,5 +50,17 @@ class UserCanViewApplicationDetailsForRegisteredApplicationTest < FeatureTest
     end
   end
 
+  def test_user_application_details_page_redirects_correctly
+    visit '/sources/JumpstartLabs/'
+
+    assert '/sources/JumpstartLabs/', current_path
+    save_and_open_page
+    within '#events-index-header' do
+      click_link_or_button('events-index-button')
+    end
+
+    assert '/sources/JumpstartLabs/events', current_path
+  end
+
 
 end

@@ -14,4 +14,20 @@ class UserSeesAllEventsOnEventIndexPageTest < FeatureTest
     end
   end
 
+  def test_user_sees_no_events_for_registered_user_with_no_payloads
+    Client.create(name: "Turing", root_url: "http://turing.io")
+    visit '/sources/Turing/events'
+
+    assert page.has_content?("Error")
+    assert page.has_content?("No events have been defined.")
+  end
+
+  def test_user_can_redirect_to_specific_event_page
+    visit '/sources/JumpstartLabs/events'
+
+    click_link("socialLogin")
+
+    assert '/sources/JumpstartLabs/events/socialLogin', current_path
+  end
+
 end
